@@ -138,7 +138,8 @@ void S3MotrKVSWriter::create_index_with_oid(
 
   s3_motr_api->motr_idx_init(idx_ctx->idx, &motr_uber_realm, &idx_oid);
   idx_ctx->n_initialized_contexts = 1;
-
+  // Caller will save pv id and other attributes
+  idx_ctx->idx[0].in_entity.en_flags |= M0_ENF_META;
   int rc = s3_motr_api->motr_entity_create(&(idx_ctx->idx[0].in_entity),
                                            &(idx_op_ctx->ops[0]));
   if (rc != 0) {

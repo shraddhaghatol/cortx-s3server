@@ -4,6 +4,7 @@
 # branch: master commit: 70701eea1dd1e20fd7c6bdc5bdd1203795d09958
 
 cd motr
+git checkout main
 # Uncomment following line to compile motr with both KVS and Cassandra
 # export CONFIGURE_OPTS=--with-cassandra
 PROCESSORS_AVAILABLE=$(cat /proc/cpuinfo | grep '^processor' | wc -l)
